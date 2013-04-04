@@ -1,0 +1,7 @@
+Net "pcie_bridge/*SPLB_Clk" TNM_NET = "SPLB_Clk";
+Net "pcie_bridge/*Bridge_Clk" TNM_NET = "Bridge_Clk";
+
+## Timing constraints between clock-domain boundaries
+#
+TIMESPEC "TS_PLB_PCIe" = FROM "SPLB_Clk" TO "Bridge_Clk" 8 ns datapathonly;
+TIMESPEC "TS_PCIe_PLB" = FROM "Bridge_Clk" TO "SPLB_Clk" 8 ns datapathonly;
